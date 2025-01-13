@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CitaMedicaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\EnfermedadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +36,7 @@ Route::get('/', function () {
 
 Route::resource('patients', PatientController::class);
 Route::resource('doctors', DoctorController::class);
+Route::resource('citas_medicas', CitaMedicaController::class);
+Route::resource('enfermedades', EnfermedadController::class);
 
 //Route::get('/patients', [PatientController::class, 'index'])->name('patients.index');
