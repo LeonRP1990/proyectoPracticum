@@ -12,9 +12,10 @@
   </head>
   <body>
 
-    <h1>Registro de Usuarios:</h1>
-
-    <div class="input-group mb-3">
+  <h1>Registro de Usuarios:</h1>
+  
+  <form  class="row g-3" method="get">
+  <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">@</span>
   <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 </div>
@@ -33,15 +34,21 @@
 <span class="input-group-text" id="basic-addon3">Mail:</span>
   <input type="text" class="form-control" placeholder="" aria-label="">
   <span class="input-group-text">@</span>
-  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+  <input type="text" class="form-control" placeholder="dominio" aria-label="dominio">
 </div>
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon3">Password:</span>
-  <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <input type="password class="form-control" id="basic-url" aria-describedby="basic-addon3">
 </div>
 
 <button type="button" class="btn btn-success">Enviar</button>
+
+</form>
+
+
+
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
