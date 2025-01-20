@@ -30,9 +30,9 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'requered|string|max:255',
-            'specialty' => 'requered|string|max:255',
-            'contact' => 'requered|string|max:255',
+            'name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
         ]);
 
         Doctor::create($request->all());
@@ -61,9 +61,9 @@ class DoctorController extends Controller
     public function update(Request $request, Doctor $doctor)
     {
         $request->validate([
-            'name' => 'requered|string|max:255',
-            'specialty' => 'requered|string|max:255',
-            'contact' => 'requered|string|max:255',
+            'name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
         ]);
 
         $doctor->update($request->all());

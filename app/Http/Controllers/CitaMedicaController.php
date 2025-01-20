@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CitaMedica;
 use App\Models\Enfermedad;
+use App\Models\Patient;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class CitaMedicaController extends Controller
@@ -36,7 +38,7 @@ class CitaMedicaController extends Controller
             'fecha' => 'required|date',
             'hora' => 'required|date',
             'paciente_id' => 'required|integer',
-            'doctor_id' => 'nullable|integer',
+            'doctor_id' => 'required|integer',
             'enfermedad_id' => 'nullable|integer',
         ]);
 

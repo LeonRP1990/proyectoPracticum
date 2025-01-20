@@ -10,8 +10,8 @@ class CitaMedica extends Model
 {
     use HasFactory;
 
-     // Si la tabla se llama exactamente 'cita_medicas':
-     protected $table = 'cita_medicas';
+     // Si la tabla se llama exactamente 'citas_medicas':
+     protected $table = 'citas_medicas';
 
     protected $fillable = [
         'fecha',
