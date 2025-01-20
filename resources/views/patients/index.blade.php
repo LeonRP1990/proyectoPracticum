@@ -4,6 +4,7 @@
 
 @section('content')
     <h2>Patients</h2>
+    <a href="{{ route('patients.create') }}" class="btn btn-primary mb-3">Crear Pacientes</a>
     <table class="table table-striped">
         <thead>
             <tr>
