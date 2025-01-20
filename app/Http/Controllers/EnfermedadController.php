@@ -31,7 +31,7 @@ class EnfermedadController extends Controller
     {
         
         $request->validate([
-            'nombre' => 'requered|string',
+            'nombre' => 'required|string',
             'descripcion' => 'nullable|string',
         ]);
 
@@ -52,7 +52,7 @@ class EnfermedadController extends Controller
      */
     public function edit(Enfermedad $enfermedad)
     {
-        return view('enfermedades.edit', compact('enfermedades'));
+        return view('enfermedades.edit', compact('enfermedad'));
     }
 
     /**
@@ -62,7 +62,7 @@ class EnfermedadController extends Controller
     {
         
         $request->validate([
-            'nombre' => 'requered|string',
+            'nombre' => 'required|string',
             'descripcion' => 'nullable|string',
         ]);
 

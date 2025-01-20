@@ -33,10 +33,10 @@ class CitaMedicaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fecha' => 'requered|date',
-            'hora' => 'requered|date',
-            'paciente_id' => 'requered|integer',
-            'doctor_id' => 'requered|integer',
+            'fecha' => 'required|date',
+            'hora' => 'required|date',
+            'paciente_id' => 'required|integer',
+            'doctor_id' => 'nullable|integer',
             'enfermedad_id' => 'nullable|integer',
         ]);
 

@@ -37,6 +37,6 @@ Route::get('/', function () {
 Route::resource('patients', PatientController::class);
 Route::resource('doctors', DoctorController::class);
 Route::resource('citas_medicas', CitaMedicaController::class);
-Route::resource('enfermedades', EnfermedadController::class);
+Route::resource('enfermedades', EnfermedadController::class)->parameters(['enfermedades' => 'enfermedad']);
 
 //Route::get('/patients', [PatientController::class, 'index'])->name('patients.index');
