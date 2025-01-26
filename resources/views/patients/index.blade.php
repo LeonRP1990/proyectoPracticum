@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Age</th>
                 <th>Contact</th>
+                <th>Email</th> <!-- Nueva columna para mostrar el email -->
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                     <td>{{ $patient->name }}</td>
                     <td>{{ $patient->age }}</td>
                     <td>{{ $patient->contact }}</td>
+                    <td>{{ $patient->email ?? 'No especificado' }}</td> <!-- Mostrar email o "No especificado" -->
                     <td>
                         <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-sm btn-info">View</a>
                         <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-sm btn-warning">Edit</a>

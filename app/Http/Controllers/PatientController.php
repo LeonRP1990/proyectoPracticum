@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PatientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra una lista de pacientes.
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo paciente.
      */
     public function create()
     {
@@ -25,7 +25,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un nuevo paciente en la base de datos.
      */
     public function store(Request $request)
     {
@@ -33,14 +33,15 @@ class PatientController extends Controller
             'name' => 'required|string|max:255',
             'age' => 'required|integer|min:0',
             'contact' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255', // Agregamos validación para el email
         ]);
 
         Patient::create($request->all());
-        return redirect()->route('patients.index')->with('success','Paciente creado satisfactoriamente');
+        return redirect()->route('patients.index')->with('success', 'Paciente creado satisfactoriamente');
     }
 
     /**
-     * Display the specified resource.
+     * Muestra los detalles de un paciente específico.
      */
     public function show(Patient $patient)
     {
@@ -48,17 +49,15 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar un paciente existente.
      */
     public function edit(Patient $patient)
     {
-        
         return view('patients.edit', compact('patient'));
-
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza un paciente en la base de datos.
      */
     public function update(Request $request, Patient $patient)
     {
@@ -66,21 +65,19 @@ class PatientController extends Controller
             'name' => 'required|string|max:255',
             'age' => 'required|integer|min:0',
             'contact' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255', // Validación para el email
         ]);
 
         $patient->update($request->all());
-        return redirect()->route('patients.index')->with('success','Paciente actualizado satisfactoriamente');
-
-
+        return redirect()->route('patients.index')->with('success', 'Paciente actualizado satisfactoriamente');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un paciente de la base de datos.
      */
     public function destroy(Patient $patient)
     {
         $patient->delete();
-        return redirect()->route('patients.index')->with('success','Paciente eliminiado satisfactoriamente');
-
+        return redirect()->route('patients.index')->with('success', 'Paciente eliminado satisfactoriamente');
     }
 }
