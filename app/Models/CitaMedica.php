@@ -10,7 +10,7 @@ class CitaMedica extends Model
     use HasFactory;
 
     /**
-     * Tabla asociada al modelo (opcional si sigue la convención de nombres).
+     * Tabla asociada al modelo.
      */
     protected $table = 'citas_medicas';
 
@@ -31,7 +31,7 @@ class CitaMedica extends Model
      */
     public function paciente()
     {
-        return $this->belongsTo(Patient::class, 'paciente_id');
+        return $this->belongsTo(Patient::class);
     }
 
     /**
@@ -40,7 +40,7 @@ class CitaMedica extends Model
      */
     public function doctor()
     {
-        return $this->belongsTo(Doctor::class, 'doctor_id');
+        return $this->belongsTo(Doctor::class);
     }
 
     /**
@@ -49,6 +49,15 @@ class CitaMedica extends Model
      */
     public function enfermedad()
     {
-        return $this->belongsTo(Enfermedad::class, 'enfermedad_id');
+        return $this->belongsTo(Enfermedad::class);
+    }
+
+    /**
+     * Relación con el modelo `Receta`.
+     * Una cita médica puede tener muchas recetas.
+     */
+    public function recetas()
+    {
+        return $this->hasMany(Receta::class);
     }
 }

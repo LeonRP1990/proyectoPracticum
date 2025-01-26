@@ -1,5 +1,3 @@
-<?php
-
 namespace App\Mail;
 
 use App\Models\CitaMedica;
@@ -11,26 +9,13 @@ class NotificacionCitaMedica extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * La instancia de la cita médica.
-     *
-     * @var CitaMedica
-     */
     public $citaMedica;
 
-    /**
-     * Crea una nueva instancia del mailable.
-     *
-     * @param CitaMedica $citaMedica
-     */
     public function __construct(CitaMedica $citaMedica)
     {
         $this->citaMedica = $citaMedica;
     }
 
-    /**
-     * Construye el mensaje.
-     */
     public function build()
     {
         return $this->subject('Detalles de su Cita Médica')
