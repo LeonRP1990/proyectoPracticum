@@ -1,20 +1,41 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title', 'Inicio - Hospital Isidro Ayora')
+@section('title', 'Dashboard - Hospital Management')
 
 @section('content')
-    <main class="jumbotron text-center bg-light shadow-lg p-5 rounded" role="main" aria-labelledby="page-title">
-        <!-- Imagen destacada -->
-        <img 
-            src="{{ asset('imagenes/FOTO.jpg') }}" 
-            alt="Vista del Hospital Isidro Ayora" 
-            class="img-fluid rounded mb-4 shadow-sm"
-            style="max-width: 100%; height: auto;"
-        >
-        <!-- Título y contenido -->
-        <h1 id="page-title" class="display-4 text-primary font-weight-bold">Bienvenido al Hospital Isidro Ayora</h1>
-        <p class="lead text-secondary">Gestión eficiente de Pacientes y Doctores</p>
-        <hr class="my-4 border-primary">
-        <p class="text-muted">Utilice la barra de navegación superior para explorar las funcionalidades disponibles en el sistema.</p>
-    </main>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">{{ __('Panel de Control') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <h5>{{ __('¡Bienvenido!') }}</h5>
+                    <p>{{ __('Has iniciado sesión correctamente. Usa el menú superior para navegar entre las secciones disponibles.') }}</p>
+
+                    <div class="mt-4">
+                        <a href="{{ route('citas_medicas.index') }}" class="btn btn-outline-primary">
+                            {{ __('Ver Citas Médicas') }}
+                        </a>
+                        <a href="{{ route('patients.index') }}" class="btn btn-outline-secondary">
+                            {{ __('Administrar Pacientes') }}
+                        </a>
+                        <a href="{{ route('doctors.index') }}" class="btn btn-outline-success">
+                            {{ __('Administrar Doctores') }}
+                        </a>
+                        <a href="{{ route('enfermedades.index') }}" class="btn btn-outline-danger">
+                            {{ __('Ver Enfermedades') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

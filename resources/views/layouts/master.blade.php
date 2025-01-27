@@ -18,22 +18,38 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('home') }}">Inicio</a>
+                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('patients.index') }}">Pacientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('doctors.index') }}">Doctores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('citas_medicas.index') }}">Citas Médicas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('enfermedades.index') }}">Enfermedades</a>
+                        </li>
+                    @endauth
+                </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('patients.index') }}">Pacientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('doctors.index') }}">Doctores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('citas_medicas.index') }}">Citas Medicas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('enfermedades.index') }}">Enfermedades</a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link" style="color: inherit; text-decoration: none;">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
