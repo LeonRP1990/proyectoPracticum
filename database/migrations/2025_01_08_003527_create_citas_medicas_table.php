@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id();
             $table->date('fecha');
             $table->time('hora');
-            $table->unsignedBigInteger('paciente_id');
-            $table->unsignedBigInteger('doctor_id');
-            $table->unsignedBigInteger('enfermedad_id')->nullable();
+            $table->unsignedBigInteger('paciente_id'); // Relación con patients
+            $table->unsignedBigInteger('doctor_id'); // Relación con doctors
+            $table->unsignedBigInteger('enfermedad_id')->nullable(); // Relación con enfermedades
             $table->timestamps();
 
-            $table->foreign('enfermedad_id')->references('id')->on('enfermedades')->onDelete('cascade');
-
+            // Claves foráneas
+            $table->foreign('paciente_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreign('enfermedad_id')->references('id')->on('enfermedades')->onDelete('set null');
         });
     }
 

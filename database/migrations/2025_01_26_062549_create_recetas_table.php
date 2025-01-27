@@ -1,3 +1,4 @@
+<?php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,11 +12,11 @@ return new class extends Migration
     {
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cita_medica_id'); // Relación con citas médicas
-            $table->text('descripcion'); // Campo para la descripción de la receta
+            $table->text('descripcion');
+            $table->unsignedBigInteger('cita_medica_id');
             $table->timestamps();
 
-            // Clave foránea para la relación con citas médicas
+            // Relación con citas_medicas
             $table->foreign('cita_medica_id')->references('id')->on('citas_medicas')->onDelete('cascade');
         });
     }
@@ -28,3 +29,4 @@ return new class extends Migration
         Schema::dropIfExists('recetas');
     }
 };
+
